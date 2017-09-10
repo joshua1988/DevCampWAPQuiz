@@ -1,0 +1,18 @@
+
+#cal_body {
+  width:200px;
+  margin: auto;
+  margin-top: 5em;
+  padding:1em;
+  border-radius: 10px;
+  border: 2px solid #CCC;
+}
+
+#cal_body textarea {
+  width: 100%;
+  height: 150px;
+  resize: none;
+}
+#cal_body * {
+  text-align: center;
+}
