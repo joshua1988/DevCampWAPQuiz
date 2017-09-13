@@ -1,4 +1,4 @@
-var btn = document.getElementsByClassName('btn');
+var btns = document.getElementsByClassName('btn');
 var iptEquation = document.getElementById('ipt-equation');
 var equalBtn = document.getElementById('btn-equal');
 var resetBtn = document.getElementById('btn-reset');
@@ -26,8 +26,8 @@ function resetInput() {
   iptEquation.value = '';
 }
 
-for (var i = 0; i < btn.length; i++) {
-  btn[i].addEventListener('click', addValue, false);
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener('click', addValue, false);
 }
 
 iptEquation.addEventListener("keyup", function(e) {
