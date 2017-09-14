@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Document</title>
+      <style>
+
+            button {
+                  width: 30px;
+                  height: 30px;
+            }
+
+            p {
+                  letter-spacing: -0.25px;
+                  font-family: sans-serif;
+                  color: #282828;
+            }
+
+            .total {
+                  font-size: 1.2em;
+                  font-weight: bold;
+            }
+      </style>
+</head>
+<body>
+      <div>
+            <p>계산기</p>
+            <input type="text" id="number">
+            <button id="plus" onclick="plus()">+</button>
+            <button id="minus" onclick="minus()">-</button>
+            <p id="total" class="total"></p>
+      </div>
+      <script>
+      var total = 0;
+
+      function plus() {
+            var number = document.getElementById("number").value;
+            total = total + (number*1);
+            document.getElementById('total').innerHTML = total;
+      }
+
+      function minus() {
+            var number = document.getElementById("number").value;
+            total = total - (number*1);
+            document.getElementById('total').innerHTML = total;
+      }
+      </script>
+</body>
+</html>
