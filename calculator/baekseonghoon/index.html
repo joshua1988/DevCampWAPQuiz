@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.2/css/bulma.min.css">
+  <style>
+    #app {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -70px;
+      margin-left: -286px;
+    }
+    .input {
+      width: 200px;
+    }
+    .calculator_container {
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <p class="title">계산기..</p>
+    <div class="calculator_container">
+      <input class="input numberList" type="number" name="a" value="" placeholder="write Number">
+      <div class="select">
+        <select name="operator" id="operator">
+          <option value="plus" selected>+</option>
+          <option value="substract">-</option>
+          <option value="multiple">*</option>
+          <option value="divide">/</option>
+        </select>
+      </div>
+      <input class="input numberList" type="number" name="b" value="" placeholder="write Number">
+      <button id="submit_btn" class="button is-primary">Calculate</button>
+    </div>
+    <p id="resultValue" class="content"></p>
+  </div>
+  <script>
+    window.onload = function() {
+        document
+            .querySelector('#submit_btn')
+            .addEventListener('click', function () {
+                if(window.outpuResultCalculator !== undefined) {
+                    outpuResultCalculator();
+                }
+            });
+    };
+
+    var outpuResultCalculator = function() {
+        var nodeList = document.querySelectorAll('.numberList'),
+            operator = document.querySelector('#operator'),
+            resultValue = document.querySelector('#resultValue'),
+            resultString = '',
+            numberList = [].map.call(nodeList, function(obj) {
+              return Number(obj.value);
+            });
+
+        if(numberList.length === 2) {
+            if(operator) {
+                switch(operator.value) {
+                    case 'plus':
+                        resultString = numberList[0] + numberList[1];
+                        break;
+                    case 'substract':
+                        resultString = numberList[0] - numberList[1];
+                        break;
+                    case 'multiple':
+                        resultString = numberList[0] * numberList[1];
+                        break;
+                    case 'divide':
+                        resultString = numberList[0] / numberList[1];
+                        break;
+                }
+
+                resultValue.textContent = '계산 결과는 ' + resultString + '입니다';
+            }
+        }
+    };
+
+    //To do : Refactoring with Functional Programming
+    //다들 넘나 잘하시는..
+  </script>
+</body>
+</html>
