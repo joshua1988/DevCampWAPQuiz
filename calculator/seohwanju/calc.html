@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계산기</title>
+    <style>
+        input{
+            width: 100px;
+            height: 25px;
+            border: 1px solid #323232;
+            padding: 2px 5px;
+            border-radius: 2px;
+            float: left;
+            margin-right: 5px;
+        }
+        .aa{
+            width: 20px;
+            height: 25px;
+            padding: 2px 5px;
+            float: left;
+            border: 1px solid #555;
+            text-align: center;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="input1" placeholder="숫자1">
+    <input type="text" id="input2" placeholder="숫자2">
+    <div onclick="sum();" class="aa">+</div>
+    <div onclick="imsum();" class="aa">-</div>
+    <input type="text" id="result" placeholder="결과">
+
+    <script>
+        function sum(){
+            var v1 = document.getElementById('input1').value;
+            var v2 = document.getElementById('input2').value;
+            if(v1 == '' || v2 == ''){
+                alert('숫자를 입력해주세요');
+                document.getElementById('input1').focus();
+            }else{
+                var sum = parseInt(v1) + parseInt(v2);
+
+                document.getElementById('result').value = sum;
+            }            
+        }
+
+        function imsum(a, b){
+            var v1 = document.getElementById('input1').value;
+            var v2 = document.getElementById('input2').value;
+            if(v1 == '' || v2 == ''){
+                alert('숫자를 입력해주세요');
+                document.getElementById('input1').focus();
+            }else{
+                var imsum =  parseInt(v1) - parseInt(v2);
+
+                document.getElementById('result').value = imsum;
+            }
+        }
+    </script>
+</body>
+</html>
