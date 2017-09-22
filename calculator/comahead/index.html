@@ -58,11 +58,11 @@
     }
 
     // 계산
-    function calc(num1, giho, num2) {
+    function calc(num1, oprator, num2) {
       num1 = parseInt(num1, 10);
       num2 = parseInt(num2, 10);
 
-      switch (giho) {
+      switch (oprator) {
         case '+': return num1 + num2;
         case '-': return num1 - num2;
         case '*': return num1 * num2;
@@ -76,8 +76,8 @@
 
       elResult.parentNode.classList.remove('hidden');
 
-      for(var i = 0, item; item = arguments[++i]; ) {
-        val += ' ' + item;
+      for(var i = 1, len = arguments.length; i < len; i++) { 
+        val += ' ' + arguments[i];
       }
       li.innerText = val;
       elResult.appendChild(li);
@@ -86,7 +86,7 @@
     var elInput = getId('input'),
       elFrm = getId('frm'),
       elResult = getId('result'),
-      regex = /^(-?\d+)\s*([-|+|*|\/]+)\s*(-?\d+)$/,
+      regex = /^(-?\d+)\s*([-|+|*|\/]{1})\s*(-?\d+)$/,
       no = 1;
 
     elFrm.addEventListener('submit', function (e) {
