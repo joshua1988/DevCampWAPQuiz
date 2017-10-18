@@ -1,5 +1,5 @@
 function createClass(Parent, props) {
-    var Cp;
+    var Kp;
     function F() {}
 
     if (!props) {
@@ -9,26 +9,40 @@ function createClass(Parent, props) {
 
     F.prototype = Parent.prototype;
 
-    function Child() {
+    function Klass() {
         if (this.initialize) {
             this.initialize.apply(this, arguments);
         }
     }
-    Cp = Child.prototype = new F;
-    Cp.constructor = Child;
-    for(var prop in props) {
-        if (props.hasOwnProperty(prop)) {
-            if (Parent.prototype[prop]) {
-                Cp[prop] = createClass.wrap(prop, props[prop], Parent);
-            } else {
-                Cp[prop] = props[prop];
-            }
-        }
-    }
-    Child.extend = function (props) {
+    Kp = Klass.prototype = new F;
+    Kp.constructor = Child;
+    
+    Klass.extend = function (props) {
         return createClass(this, props);
     };
-    return Child
+    
+    Klass.mixins = function (props) {
+        createClass.merge(this.prototype, props);
+        return this;
+    };
+    
+    Klass.members = function (props) {
+        createClass.each(props, function (val, prop) {
+            if (Parent.prototype[prop]) {
+                Kp[prop] = createClass.wrap(prop, val, Parent);
+            } else {
+                Kp[prop] = val;
+            }
+        });
+        return this;
+    };
+    Klass.members(props);
+    
+    Klass.statics = function (props) {
+        createClass.merge(this, props);
+        return this;
+    };
+    return Klass;
 }
 
 createClass.wrap = function (name, fn, supr) {
@@ -45,8 +59,34 @@ createClass.wrap = function (name, fn, supr) {
         return ret;
     }
 };
+createClass.merge = function (src, dest) {
+    for(var prop in dest) {
+        if (dest.hasOwnProperty(prop)) {
+            src[prop] = dest[prop];
+        }
+    }
+    return src;
+};
+createClass.each = function (dest, fn) {
+    for(var prop in dest) {
+        if (dest.hasOwnProperty(prop)) {
+            fn.call(dest, dest[prop], prop);
+        }
+    }
+};
 
 var BaseClass = function() {};
+BaseClass.prototype.initialize = function() { throw new Error("Base클래스로 객체를 생성 할 수 없습니다"); };
+BaseClass.prototype.release = function() {};
+BaseClass.prototype.proxy = function(fn) {
+    var self = this;
+    if (typeof fn === 'string') {
+        fn = self[fn];
+    }
+    return function() {
+        return fn.apply(self, arguments);
+    };
+}
 BaseClass.extend = function (props) {
     return createClass(this, props);
 };
