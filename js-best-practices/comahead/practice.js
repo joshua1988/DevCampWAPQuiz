@@ -24,10 +24,11 @@ var alertMsg = dust > 140 ? "stay inside" : "free to go";
 
 // 아래에 2번 답안 작성
 function fetchData(data) {
-    ((data && console.log("This data already had its value")) || (data = {}));
+  ((data !== null && !console.log("This data already had its value")) || (data = {}));
+  return data; 
+  // null 인 data에 새로운 {}를 넣으면 새로운 참조주소가 설정되기 때문에 내부에서 바꿔봤자
+  // 의미가 없으므로 반환해주어야 한다.
 }
-
-
 
 // 3. 아래 반복문을 메모리 관점에서 연산수를 줄이는 최적화를 해보세요.
 /*var arr = {

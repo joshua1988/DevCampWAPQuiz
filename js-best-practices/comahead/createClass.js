@@ -15,7 +15,7 @@ function createClass(Parent, props) {
         }
     }
     Kp = Klass.prototype = new F;
-    Kp.constructor = Child;
+    Kp.constructor = Klass;
     
     Klass.extend = function (props) {
         return createClass(this, props);
@@ -76,17 +76,20 @@ createClass.each = function (dest, fn) {
 };
 
 var BaseClass = function() {};
-BaseClass.prototype.initialize = function() { throw new Error("Base클래스로 객체를 생성 할 수 없습니다"); };
-BaseClass.prototype.release = function() {};
-BaseClass.prototype.proxy = function(fn) {
-    var self = this;
-    if (typeof fn === 'string') {
-        fn = self[fn];
+createClass.merge(BaseClass.prototype, {
+    initialize: function() { throw new Error("Base클래스로 객체를 생성 할 수 없습니다"); },
+    destroy:function() {},
+    proxy: function(fn) {
+        var self = this;
+        if (typeof fn === 'string') {
+            fn = self[fn];
+        }
+        return function() {
+            return fn.apply(self, arguments);
+        };
     }
-    return function() {
-        return fn.apply(self, arguments);
-    };
-}
+});
+
 BaseClass.extend = function (props) {
     return createClass(this, props);
 };
