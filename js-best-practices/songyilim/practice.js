@@ -23,8 +23,9 @@ function fetchData(data) {
 }
 
 // 아래에 2번 답안 작성
-function fetchData(data) {
-      data = console.log("This data already had its value") || {};
+function fetchData(data) 
+  // 기존에 작성하신 코드와 비교해보세요. || 연산자의 역할은 함수의 인자 값의 유효성을 검사하는데 사용할 수 있습니다 :)
+  this.data = data || {};
 }
 
 // 3. 아래 반복문을 메모리 관점에서 연산수를 줄이는 최적화를 해보세요.
