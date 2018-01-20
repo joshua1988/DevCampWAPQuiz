@@ -2,13 +2,15 @@
 var dust = 150;
 var alertMsg = "";
 
-if(dust > 140) {
+/*if(dust > 140) {
   alertMsg = "stay inside";
 } else {
   alertMsg = "free to go";
-}
+}*/
 
 // 아래에 1번 답안 작성
+var alertMsg = (dust > 140) ? 'stay inside' : 'free to go';
+
 
 // 2. 아래 data 값을 OR 연산자를 이용하여 값이 유효한지 확인하는 코드를 작성하세요.
 function fetchData(data) {
@@ -21,7 +23,7 @@ function fetchData(data) {
 
 // 아래에 2번 답안 작성
 function fetchData(data) {
-
+  data = {} || console.log('This data already had its value');
 }
 
 // 3. 아래 반복문을 메모리 관점에서 연산수를 줄이는 최적화를 해보세요.
@@ -34,3 +36,6 @@ for (var i = 0; i < arr.fruits.length; i++) {
 }
 
 // 아래에 3번 답안 작성
+for (var i = 0, x = arr.fruits; i < x.length; i++) {
+  console.log(x[i]);
+}
