@@ -35,6 +35,6 @@ for (var i = 0; i < arr.fruits.length; i++) {
 }
 
 // 아래에 3번 답안 작성
-for(var i =0, list = arr.fruits; i < list4.length; i++){
-console.log(list4[i]);
+for(var i =0, list = arr.fruits; i < list.length; i++){
+console.log(list[i]);
 }
