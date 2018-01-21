@@ -1,0 +1,29 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+.nps {
+  font-family: 'Nanum Pen Script',cursive;
+}
+.font-title{
+  font-size: 30px
+}
+.font-content{
+  font-size: 20px
+}
+input{
+  font-family: 'Nanum Pen Script';
+}
+button{
+  border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    width: 30px;
+    height: 30px;
+}
+.txt_result{
+background-color: #E6E6E6;
+}
+.AddClick{
+  background-color: #81DAF5;
+}
+.SubClick{
+  background-color: #F5A9D0;
+}

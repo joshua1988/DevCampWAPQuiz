@@ -1,0 +1,19 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+
+.nps {
+  font-family: 'Nanum Pen Script',cursive;
+  margin-top: :-3px;
+  margin-left : 10px;
+}
+button{
+  border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    height: 30px;
+}
+.btnPink{
+  background-color: #81DAF5;
+}
+.btnBlue{
+  background-color: #F5A9D0;
+}
