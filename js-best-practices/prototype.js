@@ -1,16 +1,16 @@
-function Developer(specialty, language, tool) {
-  this.specialty = specialty;
-  this.language = language;
-  this.tool = tool;
-  this.githubPage = function () {
-    alert("http://username.github.io/");
-  };
-  this.gcp = function () {
-    alert('http://firebase.com/');
-  };
-}
-var me = new Developer("front-end", "javascript", "atom");
-console.log(me);
+// function Developer(specialty, language, tool) {
+//   this.specialty = specialty;
+//   this.language = language;
+//   this.tool = tool;
+//   this.githubPage = function () {
+//     alert("http://username.github.io/");
+//   };
+//   this.gcp = function () {
+//     alert('http://firebase.com/');
+//   };
+// }
+// var me = new Developer("front-end", "javascript", "atom");
+// console.log(me);
 
 
 // 퀴즈 - 위 생성자 함수의 githubPage() 와 gcp() 를 Prototype 으로 분리하고,
@@ -29,4 +29,6 @@ Developer.prototype = {
     alert('http://firebase.com/');
   };
 };
-var student = new Developer("full-stack", "java", "IntelliJ");
+console.log(Developer);
+var student = new Developer("full-stack", "java", "eclipse");
+console.log(student);
