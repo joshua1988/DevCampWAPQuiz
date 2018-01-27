@@ -29,4 +29,5 @@ Developer.prototype = {
     alert('http://firebase.com/');
   }
 };
-var student = new Developer();
+var student =  new Developer("front-end", "javascript", "atom");
+console.log(student);
