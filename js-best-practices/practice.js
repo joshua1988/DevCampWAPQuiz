@@ -36,6 +36,6 @@ var arr = {
 
 // 아래에 3번 답안 작성
 var fruits=arr.fruits
-for (var i=0, fruits.langth=x; i<x; i++) {
+for (var i=0, fruits.length=x; i<x; i++) {
   console.log(fruits[i]);
 }
