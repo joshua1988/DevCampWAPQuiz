@@ -23,8 +23,8 @@ function fetchData(data) {
 
 // 아래에 2번 답안 작성
 function fetchData(data) {
-  var data = data || "This data already had its value"
-  return data;
+    var data =  data || {};
+    return data;
 }
 
 
@@ -41,6 +41,6 @@ for (var i = 0; i < arr.fruits.length; i++) {
 
 // 아래에 3번 답안 작성
 var list = arr.fruits;
-for (var i = 0, x = arr.fruits.length; i < x; i++) {
+for (var i = 0, x = list.length; i < x; i++) {
   console.log('3번 :' ,list[i]);
 }
